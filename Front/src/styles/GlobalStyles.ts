@@ -19,7 +19,7 @@ export default createGlobalStyle`
   
   :root {
     --color-header: #283e4a;
-    --color-linkedin: #0077b5;
+    --color-pyxies: #0077b5;
     --color-input: #e1e9ee;
     --color-icons: #c7d1d8;
     --color-hashtag: #7a8b98;
@@ -31,5 +31,7 @@ export default createGlobalStyle`
     --color-gray: rgba(0,0,0,.6);
     --color-separator: rgba(0,0,0,0.15);
     --color-white: #fff;
+    --color-save: #36B336;
+    --color-text: #FCFDFF;
   }
 `;

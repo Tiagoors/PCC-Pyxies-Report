@@ -10,7 +10,6 @@ import "./styles.scss";
 
 export default function Cadastro() {
   return (
-
     <div id="login-page">
       <main className="form-container box-shadow">
         <Link to="/">
@@ -23,14 +22,14 @@ export default function Cadastro() {
 
         <Formik
           initialValues={{
+            name: "",
             email: "",
-            password: ""
+            password: "",
           }}
           onSubmit={async (values) => {}}
         >
           {({ errors, touched }) => (
             <Form className="form mt-20">
-
               <div className="field-group">
                 <label htmlFor="email">Name</label>
                 <Field
@@ -68,7 +67,7 @@ export default function Cadastro() {
                 {touched.email && errors.email && (
                   <div className="error-message">{errors.email}</div>
                 )}
-              </div> 
+              </div>
 
               <div className="field-group">
                 <label htmlFor="email">Confirmar senha</label>
@@ -81,7 +80,7 @@ export default function Cadastro() {
                 {touched.email && errors.email && (
                   <div className="error-message">{errors.email}</div>
                 )}
-              </div> 
+              </div>
 
               <div className="footerInput">
                 <Link to="/login">
@@ -90,7 +89,6 @@ export default function Cadastro() {
                     Criar conta
                   </button>
                 </Link>
-                
               </div>
             </Form>
           )}

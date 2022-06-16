@@ -22,8 +22,7 @@ function Modal({ setOpenModal }: ModalProps) {
           <h1>Nos informe seu problema</h1>
         </div>
         <div className="body">
-          <textarea
-          placeholder="Digite aqui"></textarea>
+          <textarea placeholder="Digite aqui"></textarea>
         </div>
         <div className="footer">
           <button

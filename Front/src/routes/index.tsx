@@ -6,6 +6,7 @@ import Layout from "../components/Layout";
 
 import Login from "../pages/login";
 import Cadastro from "../pages/cadastro";
+import Profile from "../pages/profile";
 
 export default function Routers() {
   return (
@@ -14,7 +15,8 @@ export default function Routers() {
         <Routes>
           <Route path="/" element={<Layout />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/cadastro" element={<Cadastro />} />0
+          <Route path="/cadastro" element={<Cadastro />} />
+          <Route path="/profile" element={<Profile/>} />
           <Route
             path="*"
             element={
