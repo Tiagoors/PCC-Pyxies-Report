@@ -73,7 +73,7 @@ export default function Cadastro() {
                 <label htmlFor="email">Confirmar senha</label>
                 <Field
                   id="password"
-                  name="password"
+                  name="confirm-password"
                   type="password"
                   placeholder="Digite a senha novamente"
                 />

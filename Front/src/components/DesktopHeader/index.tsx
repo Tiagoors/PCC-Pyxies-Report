@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import {
   Container,
@@ -7,7 +8,6 @@ import {
   HomeIcon,
   NotificationsIcon,
   ProfileCircle,
-  CaretDownIcon,
 } from "./styles";
 
 const Header: React.FC = () => {
@@ -30,12 +30,12 @@ const Header: React.FC = () => {
               <span>Notificações</span>
             </button>
 
-            <button>
-              <ProfileCircle src="https://github.com/JacksonMarcony.png" />
-              <span>
-                Eu <CaretDownIcon />
-              </span>
-            </button>
+            <Link to="/profile">
+              <button>
+                <ProfileCircle src="https://github.com/JacksonMarcony.png" />
+                <span>Eu</span>
+              </button>
+            </Link>
           </nav>
         </div>
       </Wrapper>

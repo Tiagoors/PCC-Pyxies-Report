@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { AiFillHome, AiOutlineBell, AiFillCaretDown } from "react-icons/ai";
+import { AiFillHome, AiOutlineBell } from "react-icons/ai";
 
 export const Container = styled.div`
   background: var(--color-header);
@@ -94,9 +94,4 @@ export const ProfileCircle = styled.img`
   height: 24px;
   border-radius: 50%;
   border: 1px solid var(--color-icons);
-`;
-
-export const CaretDownIcon = styled(AiFillCaretDown)`
-  width: 16px;
-  height: 16px;
 `;

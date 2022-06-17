@@ -37,19 +37,4 @@ export const Container = styled.div`
     border-bottom: 1px solid var(--color-separator);
     margin: 16px 0 12px;
   }
-  .key-value {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 12px;
-    margin: 0 12px;
-    font-weight: 600;
-
-    .key {
-      color: var(--color-gray);
-    }
-    .value {
-      color: var(--color-link);
-    }
-  }
 `;

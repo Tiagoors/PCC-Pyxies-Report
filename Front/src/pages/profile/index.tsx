@@ -3,50 +3,50 @@ import React from "react";
 import "./styles.scss";
 
 export default function Profile() {
-  const avatar = "https://github/Tiagoors.png";
-
   return (
     <div id="page-profile">
       <div className="container">
         <aside className="card">
-          <img src={avatar} alt="" />
+          <img src="https://github/JacksonMarcony.png" alt="" />
           <h2>Tiago Rodrigues</h2>
           <p>
             Estudante do <br />
-            <strong>
-              Instituição Federal De Ciências e Tecnologia Baiano{" "}
-            </strong>
+            <strong>IF Baiano </strong>
           </p>
           <button form="form-profile" type="submit">
             Salvar dados
           </button>
         </aside>
         <main>
-          <form id="form-profile" method="post" action="/profile">
+          <form id="form-profile" method="post">
             <fieldset>
-              <legend>Dados do perfil</legend>
+              <legend>Mudar dados do perfil</legend>
               <div className="separator light"></div>
 
               <div className="input-group">
                 <div className="input-wrapper">
                   <label>Nome</label>
-                  <input type="text" id="name" name="name" value="Tiago" />
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="insira seu nome"
+                  />
                 </div>
 
-                <div className="input-wrapper">
-                  <label>Escolha um foto</label>
+                <div className="input-file">
+                  <label>Escolha uma foto</label>
                   <input
-                    placeholder="https://"
-                    type="url"
-                    id="avatar"
-                    name="avatar"
+                    type="file"
+                    id="input-file"
+                    accept=".png, .jpg, .jpeg"
                   />
                 </div>
               </div>
             </fieldset>
 
             <fieldset>
-              <legend>Atualizar</legend>
+              <legend>Atualizar informações de entrada</legend>
               <div className="separator light"> </div>
 
               <div className="input-group">
@@ -77,7 +77,7 @@ export default function Profile() {
                   <input
                     type="password"
                     id="password"
-                    name="senha"
+                    name="password"
                     placeholder="Digite a nova senha"
                   />
                 </div>
@@ -86,8 +86,8 @@ export default function Profile() {
                   <label>Confirmar senha</label>
                   <input
                     type="password"
-                    id="confirm-pass"
-                    name="confirm-senha"
+                    id="pwd"
+                    name="pwd"
                     placeholder="Digite a nova senha"
                   />
                 </div>
