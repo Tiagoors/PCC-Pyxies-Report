@@ -13,11 +13,11 @@ export default function Cadastro() {
     <div id="login-page">
       <main className="form-container box-shadow">
         <Link to="/">
-          <img src={logoImg} width="300" alt="Pyxies Report" />
+          <img src={logoImg} width="200" height="100" alt="Pyxies Report" />
         </Link>
 
         <div className="text-center mt-20">
-          <h1>Seja bem-vindo</h1>
+          <h2>Seja bem-vindo</h2>
         </div>
 
         <Formik
@@ -85,7 +85,7 @@ export default function Cadastro() {
               <div className="footerInput">
                 <Link to="/login">
                   <button type="submit">
-                    <img src={logInIcon} width="30" alt="Confirmar" />
+                    <img src={logInIcon} width="25" alt="Confirmar" />
                     Criar conta
                   </button>
                 </Link>
