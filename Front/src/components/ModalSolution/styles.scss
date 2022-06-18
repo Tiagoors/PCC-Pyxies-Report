@@ -1,14 +1,94 @@
 #solution {
+  margin: 1rem -9rem 0 0;
+
   form {
-    textarea {
+    .modalContainer {
       width: 90%;
       border: 0;
       padding: 16px;
       border-radius: 8px;
       background: #fefefe;
       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.84);
-      resize: vertical;
-      min-height: 130px;
+
+      > button {
+        border: 0;
+
+        background: transparent;
+        color: var(--color-ad-text);
+
+        font-size: 20px;
+
+        cursor: pointer;
+
+        &:hover {
+          color: red;
+        }
+      }
+
+      textarea {
+        width: 100%;
+        border: 0;
+        padding: 16px;
+        border-radius: 8px;
+        background: #fefefe;
+        resize: vertical;
+        resize: none;
+        min-height: 100px;
+
+        &:focus {
+          box-shadow: 0 0 0 0;
+          outline: 0;        
+        }
+      }
+
+      .footer {
+        display: flex;
+
+        justify-content: space-evenly;
+
+        button {
+          border-radius: 0.313rem;
+          border: 0;
+
+          box-shadow: 0 2px 12px rgba(0, 0, 0, 0.84);
+
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 1.800rem;
+
+          padding: 0.2rem 1rem;
+
+          margin-right: 15px;
+
+          transition: all .2s;
+
+          cursor: pointer;
+
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        #cancel {
+          
+          background: #ff4040;
+          color: var(--color-text);
+
+          &:hover {
+            background: red;
+          }
+        }
+
+        #send {
+          
+          background: var(--color-save);
+          color: var(--color-text);
+
+          &:hover {
+            background: #3CC73C;
+          }
+        }
+      }
     }
   }
 }

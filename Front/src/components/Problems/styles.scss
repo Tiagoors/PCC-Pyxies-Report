@@ -59,6 +59,15 @@
       cursor: pointer;
       transition: filter 0.2s;
 
+      display: flex;
+      gap: 0.4rem;
+      
+      span {
+        font-size: 14px;
+        margin-top: 0.200rem;
+        color: #737380;
+      }
+
       &.like-button {
         display: flex;
         align-items: flex-end;

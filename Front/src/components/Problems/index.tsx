@@ -1,4 +1,10 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState } from "react";
+
+import answerImg from "../../assets/img/answer.svg";
+
+import ModalSolution from "../../components/ModalSolution";
+
+
 
 import "./styles.scss";
 // { ReactNode } from react
@@ -24,6 +30,9 @@ type ProblemProps = {
 };
 
 export default function Problems({ children }: ProblemProps) {
+
+  const [modalSolutionOpen, setModalSolutionOpen] = useState(false);
+
   return (
     <div className="problem">
       <p>
@@ -42,8 +51,19 @@ export default function Problems({ children }: ProblemProps) {
           {/*<img src={author.avatar} alt={author.name} />*/}
           <span>Tiago</span> {/*<span>{author.name}</span>*/}
         </div>
-        <div>{children}</div> {/*<div>{children}</div>*/}
+        <div>{children}
+          <button type="button"
+              onClick={() => {
+                setModalSolutionOpen(true);
+              }}>
+            <span>Responder</span>
+            <img src={answerImg} alt="Responder a pergunta" />
+          </button>
+        </div>
       </footer>
+      {modalSolutionOpen && (
+        <ModalSolution setOpenModalSolution={setModalSolutionOpen} />
+      )}
     </div>
   );
 }

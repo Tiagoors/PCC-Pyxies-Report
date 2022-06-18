@@ -12,7 +12,24 @@ export default function ModalSolution({
   return (
     <div id="solution">
       <form>
-        <textarea placeholder="insira uma solução"></textarea>
+        <div className="modalContainer">
+          <button type="button" onClick={() => {
+                setOpenModalSolution(false);
+            }}>
+            X
+          </button>
+          <textarea placeholder="Insira uma solução"></textarea>
+          <div className="footer">
+            <button id="cancel" type="button" onClick={() => {
+                setOpenModalSolution(false);
+            }}>
+            Cancelar
+          </button>
+          <button id="send" type="button">
+            Enviar Solução
+          </button>
+          </div>
+        </div>
       </form>
     </div>
   );
