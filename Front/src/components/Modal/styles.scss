@@ -31,6 +31,7 @@
 
       > button {
         background-color: transparent;
+
         border: none;
         font-size: 25px;
         cursor: pointer;
@@ -72,6 +73,7 @@
       display: flex;
       justify-content: flex-end;
 
+
       span {
         padding: 5px;
         color: var(--color-input);
@@ -80,6 +82,8 @@
         border-top-left-radius: 0.313rem;
         border-bottom-left-radius: 0.313rem;
         background: cornflowerblue;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
 
       }
 
@@ -93,6 +97,8 @@
         font-size: 16px;
 
         background: cornflowerblue;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
         color: var(--color-input);
       }
     }
@@ -109,6 +115,8 @@
 
         border: none;
         background-color: cornflowerblue;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
         color: white;
         border-radius: 8px;
         font-size: 16px;
