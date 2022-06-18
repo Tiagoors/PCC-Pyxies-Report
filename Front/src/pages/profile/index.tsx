@@ -7,7 +7,7 @@ export default function Profile() {
     <div id="page-profile">
       <div className="container">
         <aside className="card">
-          <img src="https://github/JacksonMarcony.png" alt="" />
+          <img src="https://github.com/Tiagoors.png" alt="" />
           <h2>Tiago Rodrigues</h2>
           <p>
             Estudante do <br />
@@ -55,7 +55,7 @@ export default function Profile() {
                   <input
                     type="text"
                     id="inst"
-                    name="instituição"
+                    name="inst"
                     placeholder="Instituição"
                   />
                 </div>

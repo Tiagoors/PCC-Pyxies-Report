@@ -7,6 +7,7 @@ import Layout from "../components/Layout";
 import Login from "../pages/login";
 import Cadastro from "../pages/cadastro";
 import Profile from "../pages/profile";
+import Admin from "../pages/admin";
 
 export default function Routers() {
   return (
@@ -14,9 +15,10 @@ export default function Routers() {
       <React.Suspense fallback={<h1>Loading...</h1>}>
         <Routes>
           <Route path="/" element={<Layout />} />
+          <Route path="/admin" element={<Admin />} />
           <Route path="/login" element={<Login />} />
           <Route path="/cadastro" element={<Cadastro />} />
-          <Route path="/profile" element={<Profile/>} />
+          <Route path="/profile" element={<Profile />} />
           <Route
             path="*"
             element={
