@@ -10,6 +10,10 @@ function Modal({ setOpenModal }: ModalProps) {
     <div className="modalBackground">
       <div className="modalContainer">
         <div className="titleCloseBtn">
+          <div>
+            Olá <span>Tiago</span>, Bem vindo !!
+            {/*{username}*/}
+          </div>
           <button
             onClick={() => {
               setOpenModal(false);
@@ -18,12 +22,23 @@ function Modal({ setOpenModal }: ModalProps) {
             X
           </button>
         </div>
-        <div className="title">
-          <h1>Nos informe seu problema</h1>
-        </div>
+
         <div className="body">
-          <textarea placeholder="Digite aqui"></textarea>
+          <textarea placeholder="Insira aqui seu problema"></textarea>
         </div>
+
+        <div className="select">
+          <span>Escolha um</span>
+          <select name="select">
+            <option selected>Setor</option>
+            <option value="sport">Esportivo</option>
+            <option value="library">Biblioteca</option>
+            <option value="Refectory">Refeitório</option>
+            <option value="laboratory">Laboratório</option>
+            <option value="warehouse">Almoxarifado</option>
+          </select>
+        </div>
+
         <div className="footer">
           <button
             onClick={() => {

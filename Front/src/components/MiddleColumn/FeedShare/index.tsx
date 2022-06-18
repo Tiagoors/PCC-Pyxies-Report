@@ -7,7 +7,7 @@ import { Container, WriteIcon, CameraIcon, VideoCameraIcon } from "./styles";
 import Modal from "../../Modal";
 
 const FeedShare: React.FC = () => {
-  const [modalOpen, setModalOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(true);
 
   return (
     <Panel>
@@ -34,7 +34,6 @@ const FeedShare: React.FC = () => {
           </button>
         </div>
         {modalOpen && <Modal setOpenModal={setModalOpen} />}
-
       </Container>
     </Panel>
   );
