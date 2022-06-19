@@ -5,31 +5,6 @@ import { AiOutlineCamera, AiOutlineVideoCamera } from "react-icons/ai";
 export const Container = styled.div`
   color: var(--color-gray);
 
-  .btn-problem {
-    width: 100%;
-
-    background: none;
-    border: none;
-    cursor: pointer;
-
-    &:hover,
-    &:focus {
-      background: rgba(0, 0, 0, 0.05);
-    }
-
-    .write {
-      display: flex;
-      align-items: center;
-      padding: 18px 24px;
-      color: var(--color-gray);
-
-      > span {
-        margin-left: 8px;
-        font-weight: 600;
-      }
-    }
-  }
-
   .attachment {
     display: none;
 

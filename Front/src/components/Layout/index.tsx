@@ -7,10 +7,15 @@ import LeftColumn from "../LeftColumn";
 import MiddleColumn from "../MiddleColumn";
 import RightColumn from "../RightColumn";
 
+import Modal from "../Modal";
+
+import { WriteIcon } from "../MiddleColumn/FeedShare/styles";
+
 import { Container } from "./styles";
 
 const Layout: React.FC = () => {
   const [isLoading, setLoading] = useState(true);
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -20,16 +25,29 @@ const Layout: React.FC = () => {
 
   return (
     <Container>
+      {modalOpen && <Modal setOpenModal={setModalOpen} />}
       <MobileHeader />
       <DesktopHeader />
 
       <span>{!isLoading && <AdBanner />}</span>
+      <div className="btn" 
+        onClick={() => {
+          setModalOpen(true);
+      }}>
 
+        <button className="btn-problem">
+          <div className="write">
+            <WriteIcon />
+            <span>Informe um problema</span>
+          </div>
+        </button>
+      </div>
       <main>
         <LeftColumn isLoading={isLoading} />
         <MiddleColumn isLoading={isLoading} />
         <RightColumn isLoading={isLoading} />
       </main>
+      
     </Container>
   );
 };

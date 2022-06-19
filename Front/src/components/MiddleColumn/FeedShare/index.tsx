@@ -1,28 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Panel from "../../Panel";
 
-import { Container, WriteIcon, CameraIcon, VideoCameraIcon } from "./styles";
-
-import Modal from "../../Modal";
+import { Container, CameraIcon, VideoCameraIcon } from "./styles";
 
 const FeedShare: React.FC = () => {
-  const [modalOpen, setModalOpen] = useState(true);
-
   return (
     <Panel>
       <Container>
-        <button
-          className="btn-problem"
-          onClick={() => {
-            setModalOpen(true);
-          }}
-        >
-          <div className="write">
-            <WriteIcon />
-            <span>Comece uma publicação - Informe um problema</span>
-          </div>
-        </button>
         <div className="attachment">
           <button>
             <CameraIcon />
@@ -33,7 +18,6 @@ const FeedShare: React.FC = () => {
             Video
           </button>
         </div>
-        {modalOpen && <Modal setOpenModal={setModalOpen} />}
       </Container>
     </Panel>
   );
