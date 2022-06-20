@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { instanceApi } from "../../services/api";
 import "./styles.scss";
 
 type ModalProps = {
@@ -6,6 +7,21 @@ type ModalProps = {
 };
 
 function Modal({ setOpenModal }: ModalProps) {
+  const [problem, setProblem] = useState("");
+  const [sector, setSector] = useState("");
+
+  const sendProblem = async() => {
+    const response = await instanceApi.post("problems/create", {
+      description: problem,
+      email: "jackbeta@gmail.com",
+      department: sector
+    })
+
+    if (response.status === 201) {
+      alert("Problema enviado com sucesso!")
+    }
+  }
+
   return (
     <div className="modalBackground">
       <div className="modalContainer">
@@ -24,16 +40,19 @@ function Modal({ setOpenModal }: ModalProps) {
         </div>
 
         <div className="body">
-          <textarea placeholder="Insira aqui seu problema"></textarea>
+          <textarea
+            onChange={(e) => setProblem(e.target.value)}
+            placeholder="Insira aqui seu problema"
+          ></textarea>
         </div>
 
         <div className="select">
           <span>Escolha um</span>
-          <select name="select">
+          <select onChange={e => setSector(e.target.value)} name="select">
             <option selected>Setor</option>
             <option value="sport">Esportivo</option>
             <option value="library">Biblioteca</option>
-            <option value="Refectory">Refeitório</option>
+            <option value="refectory">Refeitório</option>
             <option value="laboratory">Laboratório</option>
             <option value="warehouse">Almoxarifado</option>
           </select>
@@ -48,7 +67,7 @@ function Modal({ setOpenModal }: ModalProps) {
           >
             Cancel
           </button>
-          <button>Enviar</button>
+          <button onClick={sendProblem}>Enviar</button>
         </div>
       </div>
     </div>

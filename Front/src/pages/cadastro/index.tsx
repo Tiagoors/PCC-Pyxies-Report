@@ -7,8 +7,22 @@ import { Formik, Field, Form } from "formik";
 import { Link } from "react-router-dom";
 
 import "./styles.scss";
+import { instanceApi } from "../../services/api";
 
 export default function Cadastro() {
+
+  const handleRegisterUser = async(data: any) => {
+    console.log(data);
+    
+    const response = await instanceApi.post("users/create", {
+      ...data,
+      isVerify: false
+    })
+
+    console.log(response);
+    
+  }
+
   return (
     <div id="login-page">
       <main className="form-container box-shadow">
@@ -25,8 +39,11 @@ export default function Cadastro() {
             name: "",
             email: "",
             password: "",
+            registry: ""
           }}
-          onSubmit={async (values) => {}}
+          onSubmit={async (values) => {
+            await handleRegisterUser(values)
+          }}
         >
           {({ errors, touched }) => (
             <Form className="form mt-20">
@@ -38,9 +55,6 @@ export default function Cadastro() {
                   type="text"
                   placeholder="Insira seu nome"
                 />
-                {touched.email && errors.email && (
-                  <div className="error-message">{errors.email}</div>
-                )}
               </div>
 
               <div className="field-group">
@@ -51,22 +65,26 @@ export default function Cadastro() {
                   type="email"
                   placeholder="exemplo@email.com"
                 />
-                {touched.email && errors.email && (
-                  <div className="error-message">{errors.email}</div>
-                )}
               </div>
 
               <div className="field-group">
-                <label htmlFor="email">Senha</label>
+                <label htmlFor="registry">Matrícula</label>
+                <Field
+                  id="registry"
+                  name="registry"
+                  type="registry"
+                  placeholder="Insira sua matrícula do suap"
+                />
+              </div>
+
+              <div className="field-group">
+                <label htmlFor="password">Senha</label>
                 <Field
                   id="password"
                   name="password"
                   type="password"
                   placeholder="Crie uma senha"
                 />
-                {touched.email && errors.email && (
-                  <div className="error-message">{errors.email}</div>
-                )}
               </div>
 
               <div className="field-group">
@@ -77,9 +95,6 @@ export default function Cadastro() {
                   type="password"
                   placeholder="Digite a senha novamente"
                 />
-                {touched.email && errors.email && (
-                  <div className="error-message">{errors.email}</div>
-                )}
               </div>
 
               <div className="footerInput">
