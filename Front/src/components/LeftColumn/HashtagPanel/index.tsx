@@ -4,13 +4,19 @@ import Panel from "../../Panel";
 
 import { Container, HashtagIcon } from "./styles";
 
-const tags = ["refeitorio", "biblioteca", "quadraesportiva", "horariodeatendimento", "emprestimodeobjetos"];
+const tags = [
+  "faltadeLivro",
+  "materialnoalmoxarifado",
+  "quadrapoliesportiva",
+  "horariodeatendimento",
+  "emprestimodeobjetos",
+];
 
 const HashtagPanel: React.FC = () => {
   return (
     <Container>
       <Panel>
-        <span className="title">Hashtags seguidas</span>
+        <span className="title">Problemas Recorrentes</span>
 
         {tags.map((item) => (
           <span className="tag">

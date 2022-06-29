@@ -10,24 +10,24 @@ function Modal({ setOpenModal }: ModalProps) {
   const [problem, setProblem] = useState("");
   const [sector, setSector] = useState("");
 
-  const sendProblem = async() => {
+  const sendProblem = async () => {
     const response = await instanceApi.post("problems/create", {
       description: problem,
       email: "jackbeta@gmail.com",
-      department: sector
-    })
+      department: sector,
+    });
 
     if (response.status === 201) {
-      alert("Problema enviado com sucesso!")
+      alert("Problema enviado com sucesso!");
     }
-  }
+  };
 
   return (
     <div className="modalBackground">
       <div className="modalContainer">
         <div className="titleCloseBtn">
           <div>
-            Olá <span>Tiago</span>, Bem vindo !!
+            Olá <span>Tiago</span>, nos informe seu problema
             {/*{username}*/}
           </div>
           <button
@@ -48,7 +48,7 @@ function Modal({ setOpenModal }: ModalProps) {
 
         <div className="select">
           <span>Escolha um</span>
-          <select onChange={e => setSector(e.target.value)} name="select">
+          <select onChange={(e) => setSector(e.target.value)} name="select">
             <option selected>Setor</option>
             <option value="sport">Esportivo</option>
             <option value="library">Biblioteca</option>
@@ -65,9 +65,11 @@ function Modal({ setOpenModal }: ModalProps) {
             }}
             id="cancelBtn"
           >
-            Cancel
+            Cancelar
           </button>
-          <button onClick={sendProblem}>Enviar</button>
+          <button id="sendBtn" onClick={sendProblem}>
+            Enviar
+          </button>
         </div>
       </div>
     </div>

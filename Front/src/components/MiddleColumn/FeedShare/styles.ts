@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { BsPencilSquare } from "react-icons/bs";
-import { AiOutlineCamera, AiOutlineVideoCamera } from "react-icons/ai";
+import { AiOutlineCamera } from "react-icons/ai";
 
 export const Container = styled.div`
   color: var(--color-gray);
@@ -11,7 +11,7 @@ export const Container = styled.div`
     @media (min-width: 1180px) {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       height: 100%;
       padding: 0 24px;
       border-top: 1px solid var(--color-separator);
@@ -51,9 +51,4 @@ const iconCSS = css`
 export const CameraIcon = styled(AiOutlineCamera)`
   ${iconCSS}
   color: #33aada;
-`;
-
-export const VideoCameraIcon = styled(AiOutlineVideoCamera)`
-  ${iconCSS}
-  color: #9896f2;
 `;

@@ -8,37 +8,33 @@ const TrendingPanel: React.FC = () => {
   return (
     <Container>
       <Panel>
-        <span className="title">Possíveis setores</span>
+        <span className="title">Avisos</span>
 
         <ul>
           <li>
             <span className="bullet" />
             <span className="news">
-              <span className="head">Refeitório</span>
+              <span className="head">
+                Por favor reportar apenas problemas ligados a instituição
+              </span>
             </span>
           </li>
           <li>
             <span className="bullet" />
             <span className="news">
-              <span className="head">Biblioteca</span>
+              <span className="head">
+                É necessário que o reporte de problemas seja de forma mais
+                educada possível
+              </span>
             </span>
           </li>
           <li>
             <span className="bullet" />
             <span className="news">
-              <span className="head">Esportivo</span>
-            </span>
-          </li>
-          <li>
-            <span className="bullet" />
-            <span className="news">
-              <span className="head">Laboratório</span>
-            </span>
-          </li>
-          <li>
-            <span className="bullet" />
-            <span className="news">
-              <span className="head">Almoxarifado</span>
+              <span className="head">
+                Em caso de dúvidas entre em contato conosco{" "}
+                <a href="mailto:pyxiesreport@gmail.com">pyxiesreport@gmail.com</a>
+              </span>
             </span>
           </li>
         </ul>

@@ -2,7 +2,7 @@ import React from "react";
 
 import Panel from "../../Panel";
 
-import { Container, CameraIcon, VideoCameraIcon } from "./styles";
+import { Container, CameraIcon } from "./styles";
 
 const FeedShare: React.FC = () => {
   return (
@@ -12,10 +12,6 @@ const FeedShare: React.FC = () => {
           <button>
             <CameraIcon />
             Foto
-          </button>
-          <button>
-            <VideoCameraIcon />
-            Video
           </button>
         </div>
       </Container>

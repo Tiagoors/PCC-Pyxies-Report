@@ -23,8 +23,6 @@ const MiddleColumn: React.FC<LoadingProps> = ({ isLoading }) => {
           <FeedShare />
           <FeedPost />
           <FeedPost />
-          <FeedPost />
-          <FeedPost />
         </>
       )}
     </Container>
