@@ -52,7 +52,7 @@ function Modal({ setOpenModal }: ModalProps) {
       <div className="modalContainer">
         <div className="titleCloseBtn">
           <div>
-            Olá <span>{userName}</span>, Bem vindo !!
+            Olá <span>Tiago</span>, nos informe seu problema
             {/*{username}*/}
           </div>
           <button
@@ -98,9 +98,11 @@ function Modal({ setOpenModal }: ModalProps) {
             }}
             id="cancelBtn"
           >
-            Cancel
+            Cancelar
           </button>
-          <button onClick={sendProblem}>Enviar</button>
+          <button id="sendBtn" onClick={sendProblem}>
+            Enviar
+          </button>
         </div>
       </div>
     </div>

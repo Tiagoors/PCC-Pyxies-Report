@@ -20,22 +20,22 @@ export const Container = styled.div`
         display: flex;
         align-items: center;
 
-        .bullet {
-          display: inline-flex;
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          background: var(--color-link);
-        }
         .news {
           display: flex;
           flex-direction: column;
           margin-left: 10px;
+          margin-top: 10px;
+          z-index: 2;
 
           .head {
             font-size: 14px;
             font-weight: 600;
-            color: var(--color-black);
+            color: var(--color-gray);
+
+            > a {
+              color: var(--color-link);
+              text-decoration: none;
+            }
           }
         }
 

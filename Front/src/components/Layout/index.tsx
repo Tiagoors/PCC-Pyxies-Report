@@ -42,12 +42,13 @@ const Layout: React.FC = () => {
       <DesktopHeader />
 
       <span>{!isLoading && <AdBanner />}</span>
-      <div className="btn" 
-        onClick={() => {
-          setModalOpen(true);
-      }}>
-
-        <button className="btn-problem">
+      <div className="btn">
+        <button
+          className="btn-problem"
+          onClick={() => {
+            setModalOpen(true);
+          }}
+        >
           <div className="write">
             <WriteIcon />
             <span>Informe um problema</span>
@@ -59,7 +60,6 @@ const Layout: React.FC = () => {
         <MiddleColumn isLoading={isLoading} posts={posts} />
         <RightColumn isLoading={isLoading} />
       </main>
-      
     </Container>
   );
 };
