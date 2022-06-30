@@ -3,8 +3,9 @@ import React, { ReactNode, useState } from "react";
 import answerImg from "../../assets/img/answer.svg";
 
 import ModalSolution from "../../components/ModalSolution";
-
-
+import { IAdmDepartment } from "../../interfaces/admDepartment";
+import { IProblemPost } from "../../interfaces/problemPost";
+import { instanceApi } from "../../services/api";
 
 import "./styles.scss";
 // { ReactNode } from react
@@ -26,23 +27,35 @@ import "./styles.scss";
 // }: ProblemProps
 
 type ProblemProps = {
+  problemData: IProblemPost;
+  userData?: IAdmDepartment;
   children?: ReactNode;
 };
 
-export default function Problems({ children }: ProblemProps) {
-
+export default function Problems({
+  problemData,
+  userData,
+  children,
+}: ProblemProps) {
   const [modalSolutionOpen, setModalSolutionOpen] = useState(false);
+
+  const handleToSendSolution = async (solution: string) => {
+    const response = await instanceApi.post('/solutions/create', {
+      solution,
+      email: userData?.email,
+      problem: problemData.id
+    })
+
+    if (response.status === 201) {
+      alert("Sua resposta foi enviada ao aluno, obrigado.")
+    } else {
+      alert("Algo deu errado, tente novamente.")
+    }
+  };
 
   return (
     <div className="problem">
-      <p>
-        Dependendo do tipo de revestimento usado, como, por exemplo, quando se
-        usa pisos de madeira especial para esportes, a necessidade de pequenas
-        manutenções em decorrência do uso da quadra pode custar caro. Além
-        disso, certos pisos exigem mão de obra extremamente especializada, o que
-        diminui a gama de opções de fornecedores e pode fazer com que você tenha
-        que esperar algum tempo pelo serviço.
-      </p>
+      <p>{problemData.description}</p>
       {/*<p>{content}</p>*/}
 
       <footer>
@@ -51,18 +64,24 @@ export default function Problems({ children }: ProblemProps) {
           {/*<img src={author.avatar} alt={author.name} />*/}
           <span>Tiago</span> {/*<span>{author.name}</span>*/}
         </div>
-        <div>{children}
-          <button type="button"
-              onClick={() => {
-                setModalSolutionOpen(true);
-              }}>
+        <div>
+          {children}
+          <button
+            type="button"
+            onClick={() => {
+              setModalSolutionOpen(true);
+            }}
+          >
             <span>Responder</span>
             <img src={answerImg} alt="Responder a pergunta" />
           </button>
         </div>
       </footer>
       {modalSolutionOpen && (
-        <ModalSolution setOpenModalSolution={setModalSolutionOpen} />
+        <ModalSolution
+          setOpenModalSolution={setModalSolutionOpen}
+          handleToSendSolution={handleToSendSolution}
+        />
       )}
     </div>
   );

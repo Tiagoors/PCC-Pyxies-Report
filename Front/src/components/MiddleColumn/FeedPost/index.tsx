@@ -12,7 +12,7 @@ import {
   Separator,
   Avatar,
   Column,
-  LikeIcon
+  LikeIcon,
 } from "./styles";
 
 const FeedPost: React.FC = () => {
@@ -25,6 +25,12 @@ const FeedPost: React.FC = () => {
             <h3>Pyxies Midia</h3>
             <h4>Instituição de ensino</h4>
             <time>1 hr</time>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book.
+            </p>
           </Column>
         </Row>
 

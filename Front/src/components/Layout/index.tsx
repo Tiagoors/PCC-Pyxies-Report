@@ -12,16 +12,28 @@ import Modal from "../Modal";
 import { WriteIcon } from "../MiddleColumn/FeedShare/styles";
 
 import { Container } from "./styles";
+import { instanceApi } from "../../services/api";
+import { IProblemPost } from "../../interfaces/problemPost";
 
 const Layout: React.FC = () => {
   const [isLoading, setLoading] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
+  const [posts, setPosts] = useState<IProblemPost[]>();
 
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
     }, 1000);
   }, []);
+
+  useEffect(() => {
+    getPostsToFeed()
+  }, [])
+
+  const getPostsToFeed = async() => {
+    const response = await instanceApi.get('problems/listen')
+    setPosts(response.data[0]);
+  }
 
   return (
     <Container>
@@ -44,7 +56,7 @@ const Layout: React.FC = () => {
       </div>
       <main>
         <LeftColumn isLoading={isLoading} />
-        <MiddleColumn isLoading={isLoading} />
+        <MiddleColumn isLoading={isLoading} posts={posts} />
         <RightColumn isLoading={isLoading} />
       </main>
       

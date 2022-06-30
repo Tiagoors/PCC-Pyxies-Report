@@ -4,24 +4,33 @@ import logoImg from "../../assets/img/logo.svg";
 import logInIcon from "../../assets/icons/login.svg";
 
 import { Formik, Field, Form } from "formik";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "./styles.scss";
 import { instanceApi } from "../../services/api";
+import { authenticateUser } from "../../services/authenticate";
 
 export default function Cadastro() {
+  const navigator = useNavigate();
 
-  const handleRegisterUser = async(data: any) => {
-    console.log(data);
-    
-    const response = await instanceApi.post("users/create", {
-      ...data,
-      isVerify: false
-    })
-
-    console.log(response);
-    
+  interface User {
+    name: string;
+    email: string;
+    password: string;
+    registry: string;
   }
+
+  const handleRegisterUser = async (user: User) => {
+    const response = await instanceApi.post("users/create", {
+      ...user,
+      isVerify: false,
+    });
+
+    if (response.status === 201) {
+      authenticateUser(response.data.token)
+      navigator("/")
+    }
+  };
 
   return (
     <div id="login-page">
@@ -39,10 +48,10 @@ export default function Cadastro() {
             name: "",
             email: "",
             password: "",
-            registry: ""
+            registry: "",
           }}
-          onSubmit={async (values) => {
-            await handleRegisterUser(values)
+          onSubmit={async (values: User) => {
+            await handleRegisterUser(values);
           }}
         >
           {({ errors, touched }) => (
@@ -90,7 +99,7 @@ export default function Cadastro() {
               <div className="field-group">
                 <label htmlFor="email">Confirmar senha</label>
                 <Field
-                  id="password"
+                  id="confirm-password"
                   name="confirm-password"
                   type="password"
                   placeholder="Digite a senha novamente"
@@ -98,12 +107,10 @@ export default function Cadastro() {
               </div>
 
               <div className="footerInput">
-                <Link to="/login">
-                  <button type="submit">
-                    <img src={logInIcon} width="25" alt="Confirmar" />
-                    Criar conta
-                  </button>
-                </Link>
+                <button type="submit">
+                  <img src={logInIcon} width="25" alt="Confirmar" />
+                  Criar conta
+                </button>
               </div>
             </Form>
           )}

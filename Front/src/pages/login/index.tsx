@@ -4,11 +4,33 @@ import logoImg from "../../assets/img/logo.svg";
 import logInIcon from "../../assets/icons/login.svg";
 
 import { Formik, Field, Form } from "formik";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "./styles.scss";
+import { instanceApi } from "../../services/api";
+import { authenticateUser } from "../../services/authenticate";
 
 export default function Login() {
+  const navigator = useNavigate();
+
+  type IUserLogin = {
+    email: string;
+    password: string;
+  };
+
+  const handleToLoginUser = async (user: IUserLogin) => {
+    try {
+      const response = await instanceApi.post("users/login", user);
+
+      if (response.status === 200) {
+        authenticateUser(response.data.token);
+        navigator("/");
+      }
+    } catch (error) {
+      alert("Algo deu errado, tente novamente!");
+    }
+  };
+
   return (
     <div id="login-page">
       <main className="form-container box-shadow">
@@ -26,7 +48,9 @@ export default function Login() {
             email: "",
             password: "",
           }}
-          onSubmit={async (values) => {}}
+          onSubmit={async (values) => {
+            await handleToLoginUser(values);
+          }}
         >
           {({ errors, touched }) => (
             <Form className="form mt-20">

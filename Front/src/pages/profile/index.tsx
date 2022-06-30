@@ -56,6 +56,8 @@ export default function Profile() {
                     type="text"
                     id="inst"
                     name="inst"
+                    value="Instituto Federal Baiano"
+                    disabled
                     placeholder="Instituição"
                   />
                 </div>

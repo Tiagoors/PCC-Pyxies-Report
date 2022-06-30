@@ -6,13 +6,22 @@ import FeedShare from "./FeedShare";
 import FeedPost from "./FeedPost";
 
 import { Container } from "./styles";
+import { IProblemPost } from "../../interfaces/problemPost";
 
-const MiddleColumn: React.FC<LoadingProps> = ({ isLoading }) => {
+
+type MiddleColumnProps = {
+  isLoading: boolean;
+  posts: IProblemPost[];
+}
+
+const MiddleColumn: React.FC<MiddleColumnProps> = ({ isLoading, posts }) => {
+  
+
   return (
     <Container className="middle-column">
       {isLoading ? (
         <>
-          <LoadingFeedShare />
+          {/* <LoadingFeedShare /> */}
           <LoadingFeedPost />
           <LoadingFeedPost />
           <LoadingFeedPost />
@@ -20,11 +29,13 @@ const MiddleColumn: React.FC<LoadingProps> = ({ isLoading }) => {
         </>
       ) : (
         <>
-          <FeedShare />
-          <FeedPost />
-          <FeedPost />
-          <FeedPost />
-          <FeedPost />
+          {/* <FeedShare /> */}
+          
+          {posts.map(post => {
+            return (
+              <FeedPost />
+            )
+          })}
         </>
       )}
     </Container>
