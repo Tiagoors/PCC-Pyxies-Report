@@ -93,5 +93,6 @@ export const ProfileCircle = styled.img`
   width: 24px;
   height: 24px;
   border-radius: 50%;
+  background: #fff;
   border: 1px solid var(--color-icons);
 `;

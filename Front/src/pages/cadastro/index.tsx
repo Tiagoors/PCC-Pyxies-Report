@@ -25,7 +25,7 @@ export default function Cadastro() {
       ...user,
       isVerify: false,
     });
-
+    
     if (response.status === 201) {
       authenticateUser(response.data.token)
       navigator("/")

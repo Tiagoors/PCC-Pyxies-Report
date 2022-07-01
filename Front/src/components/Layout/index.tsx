@@ -18,7 +18,7 @@ import { IProblemPost } from "../../interfaces/problemPost";
 const Layout: React.FC = () => {
   const [isLoading, setLoading] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
-  const [posts, setPosts] = useState<IProblemPost[]>();
+  const [posts, setPosts] = useState<IProblemPost[]|any>();
 
   useEffect(() => {
     setTimeout(() => {

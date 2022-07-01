@@ -5,12 +5,11 @@ import Panel from "../../Panel";
 import { Container } from "./styles";
 
 const ProfilePanel: React.FC = () => {
-  const img = "https://github.com/Tiagoors.png";
   return (
     <Panel>
       <Container>
         <div className="profile-cover"></div>
-        <img src={img} alt="Avatar" className="profile-picture" />
+        <img src={"https://www.pngmart.com/files/21/Account-User-PNG-Transparent.png"} alt="Avatar" className="profile-picture" />
         <h1>Tiago Rodrigues</h1>
         <h2>Aluno do IF Baiano</h2>
 

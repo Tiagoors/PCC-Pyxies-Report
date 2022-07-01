@@ -5,6 +5,8 @@ import Panel from "../../Panel";
 import Logo from "../../../assets/logo.svg";
 import PostImg from "../../../assets/profile.jpg";
 
+import { imagePath } from "../../../environment/environment.json";
+
 import {
   Container,
   Row,
@@ -15,28 +17,37 @@ import {
   LikeIcon,
 } from "./styles";
 
-const FeedPost: React.FC = () => {
+type FeedPostProps = {
+  description: string;
+  author: string;
+  department: string;
+  image: string;
+};
+
+const FeedPost: React.FC<FeedPostProps> = ({
+  author,
+  description,
+  department,
+  image
+}) => {
   return (
     <Panel>
       <Container>
         <Row className="heading">
-          <Avatar src={Logo} alt="Pyxies Midia" />
+          <Avatar src={"https://www.pngmart.com/files/21/Account-User-PNG-Transparent.png"} alt="Pyxies Midia" />
           <Column>
-            <h3>Pyxies Midia</h3>
-            <h4>Instituição de ensino</h4>
-            <time>1 hr</time>
+            <h3>{author}</h3>
+            <h3>{department}</h3>
+            <br />
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book.
+              {description}
             </p>
           </Column>
         </Row>
 
-        <PostImage src={PostImg} alt="Post Image" />
+        <PostImage src={imagePath + image} alt="Post Image" />
 
-        <Row className="likes">
+        {/* <Row className="likes">
           <span className="circle blue" />
           <span className="number">49</span>
         </Row>
@@ -50,7 +61,7 @@ const FeedPost: React.FC = () => {
             <LikeIcon />
             <span>Gostei</span>
           </button>
-        </Row>
+        </Row> */}
       </Container>
     </Panel>
   );

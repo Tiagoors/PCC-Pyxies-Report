@@ -32,7 +32,7 @@ const Header: React.FC = () => {
 
             <Link to="/profile">
               <button>
-                <ProfileCircle src="https://github.com/Tiagoors.png" />
+                <ProfileCircle src="https://www.pngmart.com/files/21/Account-User-PNG-Transparent.png" />
                 <span>Eu</span>
               </button>
             </Link>

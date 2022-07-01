@@ -10,6 +10,7 @@ export const Container = styled.div`
   }
   .profile-picture {
     width: 72px;
+    background: #fff;
     height: 72px;
     border-radius: 50%;
     border: 2px solid var(--color-white);

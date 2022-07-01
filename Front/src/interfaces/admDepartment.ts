@@ -3,4 +3,5 @@ export interface IAdmDepartment {
     name: string;
     email: string;
     department: string;
+    cpf: string;
 }

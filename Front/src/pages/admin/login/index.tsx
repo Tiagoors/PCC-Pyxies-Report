@@ -1,32 +1,35 @@
 import React from "react";
 
-import logoImg from "../../assets/img/logo.svg";
-import logInIcon from "../../assets/icons/login.svg";
+import logoImg from "../../../assets/img/logo.svg";
+import logInIcon from "../../../assets/icons/login.svg";
 
 import { Formik, Field, Form } from "formik";
 import { Link, useNavigate } from "react-router-dom";
 
 import "./styles.scss";
-import { instanceApi } from "../../services/api";
-import { authenticateUser, setUserLocal } from "../../services/authenticate";
+import { instanceApi } from "../../../services/api";
+import {
+  authenticateUser,
+  setAdminLocal,
+} from "../../../services/authenticate";
 
-export default function Login() {
+export default function AdminLogin() {
   const navigator = useNavigate();
 
   type IUserLogin = {
-    email: string;
+    cpf: string;
     password: string;
   };
 
   const handleToLoginUser = async (user: IUserLogin) => {
     try {
-      const response = await instanceApi.post("users/login", user);
+      const response = await instanceApi.post("admin/login", user);
 
-      if (response.status === 200) {
-        authenticateUser(response.data.token);
-        setUserLocal(response.data.user)
-        navigator("/");
-      }
+      console.log(response.data);
+
+      authenticateUser(response.data.token);
+      setAdminLocal(response.data.infos);
+      navigator("/admin");
     } catch (error) {
       alert("Algo deu errado, tente novamente!");
     }
@@ -46,7 +49,7 @@ export default function Login() {
 
         <Formik
           initialValues={{
-            email: "",
+            cpf: "",
             password: "",
           }}
           onSubmit={async (values) => {
@@ -56,29 +59,23 @@ export default function Login() {
           {({ errors, touched }) => (
             <Form className="form mt-20">
               <div className="field-group">
-                <label htmlFor="email">Email</label>
+                <label htmlFor="cpf">CPF</label>
                 <Field
-                  id="email"
-                  name="email"
-                  type="email"
-                  placeholder="exemplo@email.com"
+                  id="cpf"
+                  name="cpf"
+                  type="text"
+                  placeholder="Digite seu CPF cadastrado"
                 />
-                {touched.email && errors.email && (
-                  <div className="error-message">{errors.email}</div>
-                )}
               </div>
 
               <div className="field-group">
-                <label htmlFor="email">Senha</label>
+                <label htmlFor="password">Senha</label>
                 <Field
                   id="password"
                   name="password"
                   type="password"
                   placeholder="Digite sua senha aqui"
                 />
-                {touched.email && errors.email && (
-                  <div className="error-message">{errors.email}</div>
-                )}
               </div>
 
               <div className="footerInput">
@@ -86,12 +83,6 @@ export default function Login() {
                   <img src={logInIcon} width="25" alt="Confirmar" />
                   Acessar conta
                 </button>
-
-                <br />
-
-                <label>
-                  Não possui uma conta ? <a href="/cadastro">Cadastre-se</a>{" "}
-                </label>
               </div>
             </Form>
           )}

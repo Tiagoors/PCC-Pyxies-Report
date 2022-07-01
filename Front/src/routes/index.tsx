@@ -8,6 +8,7 @@ import Login from "../pages/login";
 import Cadastro from "../pages/cadastro";
 import Profile from "../pages/profile";
 import Admin from "../pages/admin";
+import AdminLogin from "../pages/admin/login";
 
 export default function Routers() {
   return (
@@ -16,6 +17,7 @@ export default function Routers() {
         <Routes>
           <Route path="/" element={<Layout />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/login" element={<Login />} />
           <Route path="/cadastro" element={<Cadastro />} />
           <Route path="/profile" element={<Profile />} />

@@ -7,7 +7,10 @@ export default function Profile() {
     <div id="page-profile">
       <div className="container">
         <aside className="card">
-          <img src="https://github.com/Tiagoors.png" alt="" />
+          <img
+            src="https://www.pngmart.com/files/21/Account-User-PNG-Transparent.png"
+            alt=""
+          />
           <h2>Tiago Rodrigues</h2>
           <p>
             Estudante do <br />

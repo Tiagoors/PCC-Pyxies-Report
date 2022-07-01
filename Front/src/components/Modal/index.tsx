@@ -24,7 +24,7 @@ function Modal({ setOpenModal }: ModalProps) {
     const token = getToken();
     const user = getUserData();
 
-    if (token) {
+    if (!token) {
       navigator("/login");
       return;
     }
@@ -42,8 +42,11 @@ function Modal({ setOpenModal }: ModalProps) {
       },
     });
 
+    console.log(response);
+    
     if (response.status === 201) {
       alert("Problema enviado com sucesso!");
+      setOpenModal(false);
     }
   };
 
@@ -52,7 +55,7 @@ function Modal({ setOpenModal }: ModalProps) {
       <div className="modalContainer">
         <div className="titleCloseBtn">
           <div>
-            Olá <span>Tiago</span>, nos informe seu problema
+            Olá, nos informe seu problema
             {/*{username}*/}
           </div>
           <button
@@ -74,7 +77,7 @@ function Modal({ setOpenModal }: ModalProps) {
         <div className="file-input">
           <input
             type="file"
-            onChange={(e) => setFile(e.target.files[0])}
+            onChange={e => setFile(e.target.files[0])}
             name="file"
             id="file"
           />
@@ -83,11 +86,11 @@ function Modal({ setOpenModal }: ModalProps) {
           <span>Escolha um</span>
           <select onChange={(e) => setSector(e.target.value)} name="select">
             <option selected>Setor</option>
-            <option value="sport">Esportivo</option>
-            <option value="library">Biblioteca</option>
-            <option value="refectory">Refeitório</option>
-            <option value="laboratory">Laboratório</option>
-            <option value="warehouse">Almoxarifado</option>
+            <option value="Esportivo">Esportivo</option>
+            <option value="Biblioteca">Biblioteca</option>
+            <option value="Refeitório">Refeitório</option>
+            <option value="Laboratório">Laboratório</option>
+            <option value="Almoxarifado">Almoxarifado</option>
           </select>
         </div>
 

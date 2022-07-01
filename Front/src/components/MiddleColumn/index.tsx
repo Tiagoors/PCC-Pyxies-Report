@@ -8,15 +8,12 @@ import FeedPost from "./FeedPost";
 import { Container } from "./styles";
 import { IProblemPost } from "../../interfaces/problemPost";
 
-
 type MiddleColumnProps = {
   isLoading: boolean;
   posts: IProblemPost[];
-}
+};
 
 const MiddleColumn: React.FC<MiddleColumnProps> = ({ isLoading, posts }) => {
-  
-
   return (
     <Container className="middle-column">
       {isLoading ? (
@@ -30,11 +27,16 @@ const MiddleColumn: React.FC<MiddleColumnProps> = ({ isLoading, posts }) => {
       ) : (
         <>
           {/* <FeedShare /> */}
-          
-          {posts.map(post => {
+
+          {posts.map((post) => {
             return (
-              <FeedPost />
-            )
+              <FeedPost
+                description={post.description}
+                image={post.file}
+                department={post.department}
+                author={String(post.user_id)}
+              />
+            );
           })}
         </>
       )}
